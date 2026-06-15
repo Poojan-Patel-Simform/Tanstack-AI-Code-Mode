@@ -81,6 +81,11 @@
   --sidebar-accent-foreground: oklch(0.218 0.008 223.9);
   --sidebar-border: oklch(0.925 0.005 214.3);
   --sidebar-ring: oklch(0.723 0.014 214.4);
+  /* Chat status semantic colors */
+  --status-error: var(--destructive);
+  --status-warn: oklch(0.92 0.08 85);
+  --status-success: oklch(0.65 0.12 140);
+  --status-info: var(--primary);
 }
 
 .dark {
@@ -126,5 +131,11 @@
   }
   html {
     @apply font-sans;
+  }
+
+  /* Chat scroll container helper */
+  .chat-scroll {
+    @apply overflow-y-auto flex-1 px-4 py-6 space-y-4;
+    scroll-behavior: smooth;
   }
 }
