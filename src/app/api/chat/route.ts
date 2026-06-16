@@ -1,23 +1,10 @@
 import { chat, toServerSentEventsResponse } from "@tanstack/ai";
-import { groqText } from "@tanstack/ai-groq";
+import { geminiText } from "@tanstack/ai-gemini";
 import { createCodeMode } from "@tanstack/ai-code-mode";
 import { createQuickJSIsolateDriver } from "@tanstack/ai-isolate-quickjs";
 import { fetchWeatherTool } from "@/tools/weatherTool";
 
 export const POST = async (request: Request) => {
-  // Check for API key
-  if (!process.env.GROQ_API_KEY) {
-    return new Response(
-      JSON.stringify({
-        error: "GROQ_API_KEY not configured",
-      }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      },
-    );
-  }
-
   const body = await request.json();
 
   try {
@@ -28,7 +15,7 @@ export const POST = async (request: Request) => {
     });
 
     const stream = chat({
-      adapter: groqText("llama-3.3-70b-versatile"),
+      adapter: geminiText("gemini-2.0-flash"),
       systemPrompts: ["You are a helpful weather assistant.", systemPrompt],
       tools: [tool],
       messages: body.messages,

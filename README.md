@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TanStack — AI Code Mode
 
-## Getting Started
+A Next.js app that provides an interactive code-mode chat experience for exploring and executing code (part of TanStack AI experiments).
 
-First, run the development server:
+## Quick Start
+
+Prerequisites: Node.js 18+ and a package manager (npm, pnpm, or yarn).
+
+Install dependencies and run the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build for production:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## What's Included
 
-To learn more about Next.js, take a look at the following resources:
+- App built with the Next.js App Router.
+- Components for chat, message list, and code execution are under `src/components`.
+- Tools and schemas live in `src/tools` and `src/schemas`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure (high level)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/` — Next.js entry, routes and layouts
+- `src/components/` — UI components and chat/code panels
+- `src/lib/` — helper utilities
+- `src/tools/` — tool adapters and integrations
 
-## Deploy on Vercel
+## Development Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Edit `app/page.tsx` to change the main UI.
+- API routes live under `app/api/`.
+- Follow existing patterns in `src/ui/` for shared UI primitives.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+PRs welcome — open issues or pull requests with bug fixes or improvements. Add tests where appropriate.
+
+## License
+
+This repository does not include a license file. Add one if you plan to share the project publicly.
+
+---
+
+If you'd like a different README layout, or want me to include badges, examples, or deploy instructions for Vercel/GitHub Actions, tell me what to add and I'll update `README.md`.

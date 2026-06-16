@@ -19,6 +19,8 @@ export const CodeModeChat = () => {
     errorMessage,
   } = useChatbot();
 
+  const messageList = messages.filter((message) => message.parts.length !== 0);
+
   return (
     <div className="flex h-screen flex-col bg-background">
       {/* HEADER */}
@@ -52,7 +54,7 @@ export const CodeModeChat = () => {
       </div>
 
       <MessageList
-        messages={messages}
+        messages={messageList}
         toolCallEvents={toolCallEvents}
         isError={isError}
         errorMessage={errorMessage}

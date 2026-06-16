@@ -1,0 +1,3 @@
+Compare the weather in Tokyo, Paris, and New York City.
+Calculate the average temperature of Tokyo, Paris, and New York City today.
+Which city is hottest today: Tokyo, Paris, or New York City?
