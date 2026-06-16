@@ -4,12 +4,14 @@ import React, { useEffect, useRef } from "react";
 import { ToolMessage, VMEvent } from "@/types/tool";
 import { Message } from "./Message";
 import { Bot } from "lucide-react";
+import { TypingDots } from "./TypingDots";
 
 type PropsType = {
   messages: ToolMessage[];
   toolCallEvents: Map<string, Array<VMEvent>>;
   isError?: boolean;
   errorMessage: string | null;
+  isLoading: boolean;
 };
 
 export const MessageList = ({
@@ -17,6 +19,7 @@ export const MessageList = ({
   toolCallEvents,
   isError,
   errorMessage,
+  isLoading,
 }: PropsType) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -37,6 +40,19 @@ export const MessageList = ({
           toolCallEvents={toolCallEvents}
         />
       ))}
+
+      {isLoading && (
+        <div className="flex gap-3">
+          <div className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+            <Bot className="size-4" />
+          </div>
+
+          <div className="rounded-3xl border bg-card">
+            <TypingDots />
+          </div>
+        </div>
+      )}
+
       {isError && (
         <div className="flex gap-3">
           <div className="mt-1 flex size-9 shrink-0 items-center justify-center rounded-xl bg-destructive text-destructive-foreground">

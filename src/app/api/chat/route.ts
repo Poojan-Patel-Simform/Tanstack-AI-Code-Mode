@@ -15,7 +15,7 @@ export const POST = async (request: Request) => {
     });
 
     const stream = chat({
-      adapter: geminiText("gemini-2.0-flash"),
+      adapter: geminiText("gemini-2.5-flash"),
       systemPrompts: ["You are a helpful weather assistant.", systemPrompt],
       tools: [tool],
       messages: body.messages,

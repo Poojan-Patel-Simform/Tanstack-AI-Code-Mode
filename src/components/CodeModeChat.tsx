@@ -58,6 +58,7 @@ export const CodeModeChat = () => {
         toolCallEvents={toolCallEvents}
         isError={isError}
         errorMessage={errorMessage}
+        isLoading={isLoading}
       />
 
       {/* INPUT */}
