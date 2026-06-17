@@ -1,5 +1,5 @@
 import { chat, toServerSentEventsResponse } from "@tanstack/ai";
-import { geminiText } from "@tanstack/ai-gemini";
+import { groqText } from "@tanstack/ai-groq";
 import { createCodeMode } from "@tanstack/ai-code-mode";
 import { createQuickJSIsolateDriver } from "@tanstack/ai-isolate-quickjs";
 import { fetchWeatherTool } from "@/tools/weatherTool";
@@ -15,7 +15,7 @@ export const POST = async (request: Request) => {
     });
 
     const stream = chat({
-      adapter: geminiText("gemini-2.5-flash"),
+      adapter: groqText("llama-3.3-70b-versatile"),
       systemPrompts: ["You are a helpful weather assistant.", systemPrompt],
       tools: [tool],
       messages: body.messages,
